@@ -1,0 +1,55 @@
+<div class="animated-text" *ngIf="showIntro">
+  <div class="words word-1">
+    <span>I</span>
+    <span>T</span>
+    <span>B</span>
+    <span>O</span>
+    <span>O</span>
+    <span>K</span>
+    <span>S</span>
+  </div>
+  
+  <div class="words word-2">
+    <span>I</span>
+    <span>S</span>
+  </div>
+  
+  <div class="words word-3">
+    <span>C</span>
+    <span>O</span>
+    <span>O</span>
+    <span>L</span>
+  </div>
+</div>
+<app-login-page *ngIf="showLogin"></app-login-page>
+<div *ngIf="mainContent">
+  <nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand">BookStore</a>
+      <ul class="nav-links" id="snip1226">
+        <li>
+          <a routerLink="/home" data-hover="Home" routerLinkActive="router-link-active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+        </li>
+        <li>
+          <a routerLink="cart" data-hover="Cart" routerLinkActive="router-link-active">Cart</a>
+        </li>
+        <li *ngIf="LoggedIn">
+          <a routerLink="" data-hover="User" routerLinkActive="router-link-active">Login</a>
+        </li>
+        <li *ngIf="signedOut">
+          <a (click)="signOut()" data-hover="SignOut" routerLinkActive="router-link-active" style="cursor: pointer;">{{isLogged}}</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <router-outlet></router-outlet><hr>
+  <footer class="footer">
+    <h4 style="text-align: center;">ITPROTOTYPE 2022</h4>
+    <div class="social-links">
+      <a href="https://t.me/DjdgsuTbshsgK12" target="_blank"><i class="fa-brands fa-telegram"></i></a>
+      <a href="https://instagram.com/mamedov.kemrannn" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://github.com/ITPrototype" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/kamron-mamedov-177396237/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </footer>
+</div>

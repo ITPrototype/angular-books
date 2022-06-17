@@ -1,0 +1,50 @@
+<form class="d-flex" (submit)="onSubmit()">
+    <input type="text" [(ngModel)]="query" name="query" class="form-control me-2" placeholder="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
+<div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Title: {{modalTitle}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <img src="{{modalImage}}" alt="{{modalTitle}}"><hr>
+              <span class="text">About: {{modalSubtitle}}</span>
+            </div>
+            <div class="m-price">{{modalPrice}}</div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="addToCart(modal)">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<div class="wrapper">
+  <div class="laoder" *ngIf="showLoader">
+    <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+    <div *ngIf="showCart" class="container">
+      <div class="card" style="width: 18rem;" *ngFor="let item of book">
+        <img src={{item.image}} class="card-img-top" alt={{item.title}}>
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+        </div>
+        <div class="alert alert-success" *ngIf="this.added.includes(item)">
+          Added
+        </div>
+        <div class="card-footer">
+            <span class="text-muted">{{item.price}}</span>
+            <a href="#" class="btn btn-primary" (click)="viewBook(item)" data-bs-toggle="modal" data-bs-target="#exampleModal">View <i class="fa-solid fa-eye"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="pagination">
+      <button class="btn btn-outline-primary" (click)="prevPage()"><i class="fa-solid fa-angles-left"></i> Prev</button>
+      <button class="btn btn-outline-primary" (click)="nextPage()">Next <i class="fa-solid fa-angles-right"></i></button>
+    </div>
+</div>
+

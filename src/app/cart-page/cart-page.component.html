@@ -1,0 +1,20 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Book</th>
+        <th scope="col">Price</th>
+        <th scope="col">Url</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of output">
+        <th scope="row"></th>
+        <td>{{item.title}}</td>
+        <td>{{item.price}}</td>
+        <td><a href="{{item.url}}" target="_blank">Url</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
